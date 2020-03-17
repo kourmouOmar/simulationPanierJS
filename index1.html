@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tableau associatif jquery</title>
+	<meta charset="utf-8">
+	<link rel='stylesheet' href='css/bootstrap.min.css'>
+      <link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript">
+		
+		var tab = {"Ordinateur Bureau" : "7000","Ordinateur portbale":"10000","Imprimente":"800","clavier":"100","souris":"50","disque dur externe":"600","toner":"400"};			
+
+	</script>
+</head>
+<body>
+
+		
+   <table border=1>
+   	<tr><td>produit</td><td>prix en dh</td></tr>
+   	<script type="text/javascript">
+   		for(var key in tab)
+		{
+ 			var value = tab[key];
+  			document.write("<tr><td> "+key   + "</td><td>  " + value+"</td></tr>");
+		}		
+   	</script>
+   </table>
+
+
+   <script src="js/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+*{
+
+} 
+header{
+	background: gray;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}  
+body{
+	width: 700px;
+	margin: auto;
+} 	
+.qst {display: none;}
+h3 ,.progression,.score{
+	text-align: center;
+}
+select{
+	width: 200px;
+	background: gray;
+}

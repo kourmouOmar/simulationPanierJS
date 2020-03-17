@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>simulation panier</title>
+	<meta charset="utf-8">
+	<link rel='stylesheet' href='css/bootstrap.min.css'>
+      <link rel="stylesheet" href="css/style.css">
+      	   <script src="js/jquery.min.js"></script>
+
+      <script type="">
+      var tabp =[];
+      var tabpp ={};
+
+      var string="";
+      var string1="";
+      var ht=0;
+      var ttc=0;
+    
+      	function f1(){
+ 
+			var b=	$( "#ajout option:selected" ).text();
+			var c= $( "#ajout option:selected" ).val();
+			var prix= parseInt( $( "#ajout option:selected" ).val());
+
+			tabp.push(b);
+
+			var hh=prix;
+			var h=(prix*20)/100;
+			var  prixhht = hh+h;
+
+			ht+=prix; 
+			ttc+=prixhht;
+
+
+ 			
+
+
+ 		
+				string+= "<option>"+b+"</option>";
+				document.getElementById("demo").innerHTML = string;
+		 
+
+ 			string1 += "<tr><td>"+b+"</td><td>"+prix+"</td><td>"+prixhht+"</td></tr>";
+			
+			document.getElementById("tab").innerHTML = string1;
+			document.getElementById("th").innerHTML = ttc;
+			document.getElementById("ttc").innerHTML = ht;
+      	}
+
+      	function f2(){
+
+      	
+      	var x = document.getElementById("demo");
+      	x.remove(x.selectedIndex);
+
+      	var b=$( "#ajout option:selected" ).text();
+      	var prix= parseInt( $( "#ajout option:selected" ).val());
+
+			tabp.push(b);
+
+			var hh=prix;
+			var h=(prix*20)/100;
+			var  prixhht = hh+h;
+
+			ht-=prix; 
+			ttc-=prixhht;
+
+      	
+      	var s = "<option>"+b+"</option>";
+      
+		var str = string;
+		var newStr = str.replace(s, '');
+      	string =newStr;
+
+      	var s2 = "<tr><td>"+b+"</td><td>"+prix+"</td><td>"+prixhht+"</td></tr>";;
+      
+		var str = string1;
+		var newStr1 = str.replace(s2, '');
+      	string1 =newStr1;
+
+		
+      
+    		
+
+      	}
+      	
+   
+      </script>
+</head>
+<body>
+		<header class="text-center">
+			<h4>simulation d'un panier d'achat en ligne</h4>
+			</header>
+		<br><br>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5  col-md-offset-1">	
+					<form name="frm">
+						<label>Liste des produit</label>
+						<select name="itm" size =10 id="ajout">
+							<option value='7000'>Ordinateur Bureau</option>
+							<option value='10000'>Ordinateur portbale</option>
+							<option value='800'>Imprimente</option>
+							<option value='100'>clavier</option>
+							<option value='50'>souris</option>
+							<option value='600' >disque dur externe</option>
+							<option value='400' >toner</option>
+						</select><br><br>
+						<input type="button" name="" class="btn btn-default" id="btn1" onclick="f1();" value="Ajouter au panier">  
+				</div>
+				
+				<div class="col-md-5 ">
+					<label>	Contenu du panier</label><br>
+					
+					<select  name="itm2" id="demo"  size=10>
+					</select>
+					<br><br>
+					<input type="button" class="btn btn-default" id="btn2" onclick="f2();" value="Enlever du panier">
+					</form>
+				</div>
+			</div>	
+			<br><br>
+
+			<div class="row">	
+				<div class="col-md-10 col-md-offset-2 text-center">	
+						<h3 class="text-center">montant du panier</h3>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<table class="table">
+    				<thead>
+     					<tr>
+        					<th>produit</th>
+        					<th>prix unitaire HT</th>
+        					<th>prix unitaire TTC</th>
+      					</tr>
+   					</thead>
+    				<tbody id="tab">
+     					
+    				</tbody>
+    				<tfoot>
+    					<tr>
+        					<td>Total</td>
+        					<td id="ht"><div id="ttc"></div></td>
+        					<td id="th"></td>
+      					</tr>
+    				</tfoot>
+  					</table>
+				</div>
+			</div>
+		</div>
+	
+		
+		 
+		
+
+
+</body>
+</html>
+<script type="text/javascript">
+	  var tab = {"Ordinateur Bureau" : "7000","Ordinateur portbale":"10000","Imprimente":"800","clavier":"100","souris":"50","disque dur externe":"600","toner":"400"};
+</script>
